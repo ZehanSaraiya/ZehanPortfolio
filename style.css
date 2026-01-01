@@ -377,6 +377,12 @@ h1 {
     background: radial-gradient(circle at center, rgba(0, 243, 255, 0.1), transparent);
 }
 
+.profile-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 .profile-id {
     position: absolute;
     bottom: 10px;
