@@ -51,20 +51,20 @@ ul {
     pointer-events: none;
     z-index: 9999;
     transform: translate(-50%, -50%);
-    mix-blend-mode: difference;
+    mix-blend-mode: normal;
 }
 
 
 .cursor {
     width: 8px;
     height: 8px;
-    background: #1eff00;
+    background: #ff00cc;
 }
 
 .cursor-follower {
     width: 40px;
     height: 40px;
-    border: 2px solid #cc00ff;
+    border: 2px solid #1eff00;
     transition: transform 0.1s ease-out;
 }
 

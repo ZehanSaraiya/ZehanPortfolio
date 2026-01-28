@@ -66,33 +66,44 @@ function initFloatingIcons() {
 initFloatingIcons();
 const cursor = document.querySelector('.cursor');
 const follower = document.querySelector('.cursor-follower');
-const links = document.querySelectorAll('a');
 
 document.addEventListener('mousemove', (e) => {
     cursor.style.left = e.clientX + 'px';
     cursor.style.top = e.clientY + 'px';
 
-    // Follower needs a slight delay for smooth effect - using CSS transition for that, just updating position here
+    // Follower position update
     follower.style.left = e.clientX + 'px';
     follower.style.top = e.clientY + 'px';
 });
 
-// Hover effect for links
-links.forEach(link => {
-    link.addEventListener('mouseenter', () => {
+// Hover effect for interactive elements
+const interactiveElements = document.querySelectorAll('a, .project-card, .btn-primary');
+
+interactiveElements.forEach(el => {
+    el.addEventListener('mouseenter', () => {
         cursor.style.transform = 'translate(-50%, -50%) scale(1.5)';
         cursor.style.backgroundColor = 'transparent';
-        cursor.style.border = '1px solid #ff00d4';
+        cursor.style.border = '1px solid #ff00cc';
         follower.style.transform = 'translate(-50%, -50%) scale(1.8)';
         follower.style.borderColor = 'transparent';
     });
 
-    link.addEventListener('mouseleave', () => {
+    el.addEventListener('mouseleave', () => {
         cursor.style.transform = 'translate(-50%, -50%) scale(1)';
-        cursor.style.backgroundColor = '#ff00d4';
+        cursor.style.backgroundColor = '#ff00cc';
         cursor.style.border = 'none';
         follower.style.transform = 'translate(-50%, -50%) scale(1)';
-        follower.style.borderColor = '#ff00d4';
+        follower.style.borderColor = '#1eff00';
+    });
+
+    el.addEventListener('mousedown', () => {
+        cursor.style.transform = 'translate(-50%, -50%) scale(0.8)';
+        follower.style.transform = 'translate(-50%, -50%) scale(1.2)';
+    });
+
+    el.addEventListener('mouseup', () => {
+        cursor.style.transform = 'translate(-50%, -50%) scale(1.5)';
+        follower.style.transform = 'translate(-50%, -50%) scale(1.8)';
     });
 });
 
